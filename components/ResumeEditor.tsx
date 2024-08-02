@@ -29,16 +29,18 @@ const styles = StyleSheet.create({
 });
 
 const ResumeEditor = ({ resume }) => {
+  console.log(resume);
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    introduction: "",
-    educationalQual: [""],
-    professionalExp: [{ title: "", description: "" }],
-    skills: [""],
-    projects: [{ title: "", description: "" }],
-    awards: [""],
+    name: resume.name,
+    email: resume.email,
+    contact: resume.contact,
+    introduction: resume.introduction,
+
+    educationalQual: resume.educationalQual,
+    professionalExp: resume.professionalExp || [],
+    skills: resume.skills,
+    projects: resume.projects || [],
+    awards: resume.awards,
   });
   const [loading, setLoading] = useState(false);
   useAutosave({
@@ -86,7 +88,7 @@ const ResumeEditor = ({ resume }) => {
         <View style={styles.section}>
           <Text style={styles.heading}>{formData.name}</Text>
           <Text style={styles.text}>{formData.email}</Text>
-          <Text style={styles.text}>{formData.phone}</Text>
+          <Text style={styles.text}>{formData.contact}</Text>
         </View>
         <View style={styles.section}>
           <Text style={styles.subheading}>Summary</Text>
@@ -186,9 +188,9 @@ const ResumeEditor = ({ resume }) => {
             <input
               name="phone"
               placeholder="Phone"
-              value={formData.phone}
+              value={formData.contact}
               onChange={(e) =>
-                setFormData({ ...formData, phone: e.target.value })
+                setFormData({ ...formData, contact: e.target.value })
               }
               className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             />

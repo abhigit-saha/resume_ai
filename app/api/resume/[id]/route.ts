@@ -13,7 +13,7 @@ export const PATCH = async (request, { params }) => {
     name,
     email,
     contact,
-  } = request.json();
+  } = await request.json();
   const user = await getUserByClerkID();
   const updatedResume = await prisma.resume.update({
     where: {

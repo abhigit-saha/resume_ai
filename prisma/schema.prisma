@@ -35,9 +35,9 @@ model Resume {
   contact         String   @default("")
   introduction    String[] @db.Text
   educationalQual String[] @db.Text
-  professionalExp String[] @db.Text
+  professionalExp Json[] 
   skills          String[] @db.Text
-  projects        String[] @db.Text
+  projects        Json[] 
   awards String[] @db.Text
 
   analysis Analysis?
@@ -53,4 +53,10 @@ model Analysis {
 
   resumeId String @unique
   resume   Resume @relation(fields: [resumeId], references: [id])
+  strengths String[]
+  weaknesses String[]
+  opportunities String[]
+  threats String[]
+  projectRating String[]
+  overallRating String[]
 }

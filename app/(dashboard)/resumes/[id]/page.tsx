@@ -1,5 +1,5 @@
 import { getUserByClerkID } from "@/utils/auth";
-
+import { analyze } from "@/utils/ai";
 import { prisma } from "@/utils/db";
 import ResumeEditor from "@/components/ResumeEditor";
 
@@ -24,6 +24,7 @@ const ResumeData = async ({ params }) => {
       {/*note: we can pass props from client to server components as long as they are serializable*/}
       {/*since resume has been fetched from the database(ie been over the internet, it is serializable*/}
       {/*so we can pass it as a prop*/}
+      {await analyze("hey")}
     </>
   );
 };

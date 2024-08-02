@@ -9,11 +9,13 @@ const createUrl = (path: String) => {
 //ie intro, prof exp etc.
 export const updateResume = async (id: String, content) => {
   try {
-    const res = await fetch(new Request(createUrl(`/api/resume/{id}`)), {
+    const res = await fetch(new Request(createUrl(`/api/resume/${id}`)), {
       method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify(content),
     });
-
     if (res.ok) {
       const data = await res.json();
       return data.data;

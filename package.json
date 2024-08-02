@@ -5,6 +5,7 @@
   "main": "next.config.js",
   "dependencies": {
     "@clerk/nextjs": "^5.2.2",
+    "@langchain/openai": "^0.2.1",
     "@nextui-org/react": "^2.4.2",
     "@nextui-org/spinner": "^2.0.30",
     "@nextui-org/theme": "^2.2.6",
@@ -201,6 +202,7 @@
     "json5": "^1.0.2",
     "jsx-ast-utils": "^3.3.5",
     "keyv": "^4.5.4",
+    "langchain": "^0.2.9",
     "language-subtag-registry": "^0.3.23",
     "language-tags": "^1.0.9",
     "levn": "^0.4.1",
